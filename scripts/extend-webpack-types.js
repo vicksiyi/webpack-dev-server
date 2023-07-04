@@ -3,6 +3,10 @@
 const path = require("path");
 const fs = require("graceful-fs");
 
+/**
+ * 扩展server.d.ts类型
+ * 定义一个"webpack"的module
+ */
 async function extendTypes() {
   const typesPath = path.resolve(__dirname, "../types/lib/Server.d.ts");
   const content = await fs.promises.readFile(typesPath, "utf-8");

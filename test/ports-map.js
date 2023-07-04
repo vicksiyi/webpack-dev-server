@@ -97,6 +97,9 @@ Object.keys(listOfTests).forEach((key) => {
 
 const busy = {};
 
+/**
+ * 通过代理模式check一下当前的port是否被纪录在里面
+ */
 module.exports = new Proxy(ports, {
   get(target, name) {
     if (!target[name]) {
@@ -105,6 +108,9 @@ module.exports = new Proxy(ports, {
       );
     }
 
+    /**
+     * 判断当前的port是否被别的test占用着，如果占用了则报错
+     */
     if (busy[name]) {
       throw new Error(
         `The "${name}" port is already in use in another test, please add a new one.`

@@ -5,6 +5,9 @@ const tcpPortUsed = require("tcp-port-used");
 const { version } = require("webpack");
 const ports = require("../test/ports-map");
 
+/**
+ * 验证端口号是否被占用了
+ */
 // eslint-disable-next-line no-console
 console.log(`\n Running tests for webpack @${version} \n`);
 
